@@ -1,0 +1,59 @@
+[org.gnome.shell.keybindings]
+# default: ['<Super>v', '<Super>m']
+# conflict: toggle maximized
+toggle-message-tray = ['<Super>v']
+
+[org.gnome.desktop.wm.keybindings]
+# default: ['<Alt>F4']
+close = ['<Alt>F4', '<Super>q']
+# default: ['<Super>Up']
+# conflict: shift focus up
+maximize = []
+# default: ['<Super>h']
+# conflict: shift focus left
+minimize = []
+# default: ['<Super><Shift>Down']
+# conflict: move current window down one workspace
+move-to-monitor-down = ['<Primary><Shift><Super>Down', '<Primary><Shift><Super>j']
+# default: ['<Super><Shift>Left']
+move-to-monitor-left = ['<Shift><Super>Left', '<Shift><Super>h']
+# default: ['<Super><Shift>Right']
+move-to-monitor-right = ['<Shift><Super>Right', '<Shift><Super>l']
+# default: ['<Super><Shift>Up']
+# conflict: move current window down one workspace
+move-to-monitor-up = ['<Primary><Shift><Super>Up', '<Primary><Shift><Super>k']
+# default: ['<Super><Shift>Page_Down', '<Control><Shift><Alt>Down']
+move-to-workspace-down = ['<Super><Shift>Page_Down', '<Control><Shift><Alt>Down', '<Shift><Super>Down', '<Shift><Super>j']
+# default: ['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up']
+move-to-workspace-up = ['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up', '<Shift><Super>Up', '<Shift><Super>k']
+# default: ['<Super>Page_Down', '<Control><Alt>Down']
+switch-to-workspace-down = ['<Super>Page_Down', '<Control><Alt>Down', '<Primary><Super>Down', '<Primary><Super>j']
+# default: ['<Super>Page_Up', '<Control><Alt>Up']
+switch-to-workspace-up = ['<Super>Page_Up', '<Control><Alt>Up', '<Primary><Super>Up', '<Primary><Super>k']
+# default: ['<Alt>F10']
+toggle-maximized = ['<Alt>F10', '<Super>m']
+# default: ['<Super>Down', '<Alt>F5']
+# conflict: shift focus down
+unmaximize = ['<Alt>F5']
+
+[org.gnome.mutter]
+# doesn't work with tiling
+attach-modal-dialogs = false
+
+[org.gnome.mutter.keybindings]
+# default: ['<Super>Left']
+# conflict: shift focus left
+toggle-tiled-left = ['<Primary><Super>Left']
+# default: ['<Super>Right']
+# conflict: shift focus right
+toggle-tiled-right = ['<Primary><Super>Right']
+
+[org.gnome.mutter.wayland.keybindings]
+# default: ['<Super>Escape']
+# conflict: screensaver
+restore-shortcuts = []
+
+[org.gnome.settings-daemon.plugins.media-keys]
+# default: ['<Super>l']
+# conflict: shift focus right
+screensaver = ['<Super>Escape']
