@@ -1,11 +1,12 @@
-%global uuid        pop-shell@system76.com
+%global extension   pop-shell
+%global uuid        %{extension}@system76.com
 %global forgeurl    https://github.com/pop-os/shell
 %global commit      841632872d77abc3c45cd13540ffae755839655a
 %global date        20200821
 
 %forgemeta
 
-Name:           gnome-shell-extension-pop-shell
+Name:           gnome-shell-extension-%{extension}
 Version:        0.1.0
 Release:        0.2%{?dist}
 Summary:        GNOME Shell extension for advanced tiling window management
@@ -13,7 +14,7 @@ Summary:        GNOME Shell extension for advanced tiling window management
 License:        GPLv3 and ASL 2.0
 URL:            %{forgeurl}
 Source0:        %{forgesource}
-Source1:        50_pop-shell.gschema.override
+Source1:        50_%{extension}.gschema.override
 BuildArch:      noarch
 BuildRequires:  npm(typescript) >= 3.8
 Requires:       gnome-shell-extension-common
@@ -50,11 +51,11 @@ cp -r --preserve=mode,timestamps metadata.json icons target/*.js imports/*.js *.
 
 # install the schema file
 install -D -p -m 0644 \
-    schemas/org.gnome.shell.extensions.pop-shell.gschema.xml \
+    schemas/org.gnome.shell.extensions.%{extension}.gschema.xml \
     %{buildroot}%{_datadir}/glib-2.0/schemas/%{uuid}.gschema.xml
 
 # install the schema override file
-install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_pop-shell.gschema.override
+install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{extension}.gschema.override
 
 
 %files
@@ -62,7 +63,7 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_pop-she
 %doc README.md
 %{_datadir}/gnome-shell/extensions/%{uuid}
 %{_datadir}/glib-2.0/schemas/%{uuid}.gschema.xml
-%{_datadir}/glib-2.0/schemas/50_pop-shell.gschema.override
+%{_datadir}/glib-2.0/schemas/50_%{extension}.gschema.override
 
 
 %changelog
