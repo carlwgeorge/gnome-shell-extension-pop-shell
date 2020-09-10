@@ -43,10 +43,10 @@ attach-modal-dialogs = false
 [org.gnome.mutter.keybindings]
 # default: ['<Super>Left']
 # conflict: shift focus left
-toggle-tiled-left = ['<Primary><Super>Left']
+toggle-tiled-left = ['<Primary><Super>Left', '<Primary><Super>h']
 # default: ['<Super>Right']
 # conflict: shift focus right
-toggle-tiled-right = ['<Primary><Super>Right']
+toggle-tiled-right = ['<Primary><Super>Right', '<Primary><Super>l']
 
 [org.gnome.mutter.wayland.keybindings]
 # default: ['<Super>Escape']
