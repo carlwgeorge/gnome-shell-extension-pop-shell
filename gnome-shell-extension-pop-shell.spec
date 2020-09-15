@@ -1,14 +1,14 @@
 %global extension   pop-shell
 %global uuid        %{extension}@system76.com
 %global forgeurl    https://github.com/pop-os/shell
-%global commit      017c92e04f4eefead2561fa35559891eb83388c9
-%global date        20200908
+%global commit      e5a80ea39a4f0217989cb681eecd182ddc9a7c5d
+%global date        20200915
 
 %forgemeta
 
 Name:           gnome-shell-extension-%{extension}
 Version:        0.1.0
-Release:        0.3%{?dist}
+Release:        0.4%{?dist}
 Summary:        GNOME Shell extension for advanced tiling window management
 # The entire source code is GPLv3 except math.js which is ASL 2.0
 License:        GPLv3 and ASL 2.0
@@ -67,6 +67,9 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 
 
 %changelog
+* Tue Sep 15 2020 Carl George <carl@george.computer> - 0.1.0-0.4.20200915gite5a80ea
+- Latest upstream commit
+
 * Thu Sep 10 2020 Carl George <carl@george.computer> - 0.1.0-0.3.20200908git017c92e
 - Latest upstream commit
 - Add primary-super-h/l versions of toggle-tiled-left/right keybindings
