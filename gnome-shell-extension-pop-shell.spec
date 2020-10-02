@@ -8,7 +8,7 @@
 
 Name:           gnome-shell-extension-%{extension}
 Version:        0.1.0
-Release:        0.6%{?dist}
+Release:        0.7%{?dist}
 Summary:        GNOME Shell extension for advanced tiling window management
 # The entire source code is GPLv3 except math.js which is ASL 2.0
 License:        GPLv3 and ASL 2.0
