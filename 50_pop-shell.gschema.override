@@ -2,6 +2,9 @@
 # default: ['<Super>v', '<Super>m']
 # conflict: toggle maximized
 toggle-message-tray = ['<Super>v']
+# default: ['<Super>s']
+# conflict: toggle stacking
+toggle-overview = []
 
 [org.gnome.desktop.wm.keybindings]
 # default: ['<Alt>F4']
