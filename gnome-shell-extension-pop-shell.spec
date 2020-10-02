@@ -43,7 +43,7 @@ become the leading competitor to the GNOME desktop.
 # want, because our schemas will be compiled by glib2's file triggers.  Perform
 # the steps we do want from that target manually.
 mkdir -p _build
-cp -r --preserve=mode,timestamps metadata.json icons target/*.js imports/*.js *.css _build
+cp -r --preserve=mode,timestamps metadata.json icons target/*.js imports/*.js *.css src/gtk/*.js _build
 
 
 %install
@@ -69,6 +69,7 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 %changelog
 * Fri Oct 02 2020 Carl George <carl@george.computer> - 0.1.0-0.8.20201001gitff702bc
 - Latest upstream commit
+- Include new color-dialog file
 
 * Fri Oct 02 2020 Drew DeVore <drew@devorcula.com> - 0.1.0-0.7.20200929gitb9f8d96
 - Added override for stacking conflict
