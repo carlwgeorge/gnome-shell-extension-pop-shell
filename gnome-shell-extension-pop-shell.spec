@@ -20,6 +20,7 @@ Patch0:         0001-Remove-schemas-from-compile-target.patch
 BuildArch:      noarch
 BuildRequires:  npm(typescript) >= 3.8
 Requires:       gnome-shell-extension-common
+Recommends:     %{name}-shortcut-overrides
 Recommends:     gnome-extensions-app
 Recommends:     gnome-shell-extension-native-window-placement
 
@@ -30,6 +31,14 @@ sensible navigation and management of windows.  The core feature of Pop Shell
 is the addition of advanced tiling window management - a feature that has been
 highly-sought within our community.  For many - ourselves included - i3wm has
 become the leading competitor to the GNOME desktop.
+
+
+%package shortcut-overrides
+Summary:        Shortcut overrides for %{name}
+
+
+%description shortcut-overrides
+Shortcut overrides for %{name}.
 
 
 %prep
@@ -57,6 +66,9 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 %doc README.md
 %{_datadir}/gnome-shell/extensions/%{uuid}
 %{_datadir}/glib-2.0/schemas/%{uuid}.gschema.xml
+
+
+%files shortcut-overrides
 %{_datadir}/glib-2.0/schemas/50_%{extension}.gschema.override
 
 
@@ -64,6 +76,7 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 * Tue Oct 20 2020 Carl George <carl@george.computer> - 0.1.0-0.9.20201016gita11d3c3
 - Latest upstream commit
 - Sync shortcut overrides with pop-session
+- Move shortcut overrides to a subpackage
 
 * Fri Oct 02 2020 Carl George <carl@george.computer> - 0.1.0-0.8.20201001gitff702bc
 - Latest upstream commit
