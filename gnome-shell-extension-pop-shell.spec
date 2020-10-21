@@ -17,6 +17,9 @@ Source0:        %{forgesource}
 Source1:        50_%{extension}.gschema.override
 # downstream-only patch
 Patch0:         0001-Remove-schemas-from-compile-target.patch
+# https://github.com/pop-os/shell/pull/649
+Patch1:         0001-Display-shortcuts-website-if-pop-shell-shortcuts-is-not-installed.patch
+
 BuildArch:      noarch
 BuildRequires:  npm(typescript) >= 3.8
 Requires:       gnome-shell-extension-common
@@ -77,6 +80,7 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 - Latest upstream commit
 - Sync shortcut overrides with pop-session
 - Move shortcut overrides to a subpackage
+- Open shortcuts website if pop-shell-shortcuts is not installed
 
 * Fri Oct 02 2020 Carl George <carl@george.computer> - 0.1.0-0.8.20201001gitff702bc
 - Latest upstream commit

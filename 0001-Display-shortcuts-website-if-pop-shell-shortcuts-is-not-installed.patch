@@ -1,0 +1,26 @@
+From 25f353219dba01a82aa098f7f8b8726306548cf0 Mon Sep 17 00:00:00 2001
+From: Carl George <carl@george.computer>
+Date: Wed, 21 Oct 2020 00:20:02 -0500
+Subject: [PATCH] Display shortcuts website if pop-shell-shortcuts is not
+ installed
+
+---
+ src/panel_settings.ts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/panel_settings.ts b/src/panel_settings.ts
+index a2874f1..1bf5e02 100644
+--- a/src/panel_settings.ts
++++ b/src/panel_settings.ts
+@@ -94,7 +94,7 @@ function settings_button(menu: any): any {
+         if (path) {
+             imports.misc.util.spawn([path]);
+         } else {
+-            log.error(`You must install \`pop-shell-shortcuts\``)
++            imports.misc.util.spawn(['xdg-open', 'https://support.system76.com/articles/pop-keyboard-shortcuts/']);
+         }
+ 
+         menu.close();
+-- 
+2.28.0
+
