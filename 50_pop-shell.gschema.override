@@ -1,62 +1,57 @@
+# Based on pop-session shortcut overrides
+# https://raw.githubusercontent.com/pop-os/session/master_groovy/debian/pop-session.gsettings-override
+
 [org.gnome.shell.keybindings]
-# default: ['<Super>v', '<Super>m']
-# conflict: toggle maximized
+open-application-menu = []
 toggle-message-tray = ['<Super>v']
-# default: ['<Super>s']
-# conflict: toggle stacking
 toggle-overview = []
+switch-to-application-1 = []
+switch-to-application-2 = []
+switch-to-application-3 = []
+switch-to-application-4 = []
+switch-to-application-5 = []
+switch-to-application-6 = []
+switch-to-application-7 = []
+switch-to-application-8 = []
+switch-to-application-9 = []
 
 [org.gnome.desktop.wm.keybindings]
-# default: ['<Alt>F4']
-close = ['<Alt>F4', '<Super>q']
-# default: ['<Super>Up']
-# conflict: shift focus up
+close = ['<Super>q']
 maximize = []
-# default: ['<Super>h']
-# conflict: shift focus left
 minimize = []
-# default: ['<Super><Shift>Down']
-# conflict: move current window down one workspace
-move-to-monitor-down = ['<Primary><Shift><Super>Down', '<Primary><Shift><Super>j']
-# default: ['<Super><Shift>Left']
-move-to-monitor-left = ['<Shift><Super>Left', '<Shift><Super>h']
-# default: ['<Super><Shift>Right']
-move-to-monitor-right = ['<Shift><Super>Right', '<Shift><Super>l']
-# default: ['<Super><Shift>Up']
-# conflict: move current window down one workspace
-move-to-monitor-up = ['<Primary><Shift><Super>Up', '<Primary><Shift><Super>k']
-# default: ['<Super><Shift>Page_Down', '<Control><Shift><Alt>Down']
-move-to-workspace-down = ['<Super><Shift>Page_Down', '<Control><Shift><Alt>Down', '<Shift><Super>Down', '<Shift><Super>j']
-# default: ['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up']
-move-to-workspace-up = ['<Super><Shift>Page_Up', '<Control><Shift><Alt>Up', '<Shift><Super>Up', '<Shift><Super>k']
-# default: ['<Super>Page_Down', '<Control><Alt>Down']
-switch-to-workspace-down = ['<Super>Page_Down', '<Control><Alt>Down', '<Primary><Super>Down', '<Primary><Super>j']
-# default: ['<Super>Page_Up', '<Control><Alt>Up']
-switch-to-workspace-up = ['<Super>Page_Up', '<Control><Alt>Up', '<Primary><Super>Up', '<Primary><Super>k']
-# default: ['<Alt>F10']
-toggle-maximized = ['<Alt>F10', '<Super>m']
-# default: ['<Super>Down', '<Alt>F5']
-# conflict: shift focus down
-unmaximize = ['<Alt>F5']
+move-to-monitor-down = []
+move-to-monitor-left = []
+move-to-monitor-right = []
+move-to-monitor-up = []
+move-to-workspace-down = []
+move-to-workspace-left = []
+move-to-workspace-right = []
+move-to-workspace-up = []
+switch-to-workspace-down = ['<Primary><Super>Down', '<Primary><Super>j']
+switch-to-workspace-left = []
+switch-to-workspace-right = []
+switch-to-workspace-up = ['<Primary><Super>Up', '<Primary><Super>k']
+toggle-maximized = ['<Super>m']
+unmaximize = []
 
 [org.gnome.mutter]
-# doesn't work with tiling
 attach-modal-dialogs = false
+workspaces-only-on-primary = false
 
 [org.gnome.mutter.keybindings]
-# default: ['<Super>Left']
-# conflict: shift focus left
-toggle-tiled-left = ['<Primary><Super>Left', '<Primary><Super>h']
-# default: ['<Super>Right']
-# conflict: shift focus right
-toggle-tiled-right = ['<Primary><Super>Right', '<Primary><Super>l']
+toggle-tiled-left = ['<Primary><Super>Left']
+toggle-tiled-right = ['<Primary><Super>Right']
 
 [org.gnome.mutter.wayland.keybindings]
-# default: ['<Super>Escape']
-# conflict: screensaver
 restore-shortcuts = []
 
 [org.gnome.settings-daemon.plugins.media-keys]
-# default: ['<Super>l']
-# conflict: shift focus right
+email = ['<Super>e']
+home = ['<Super>f']
+rotate-video-lock-static = ['XF86RotationLockToggle']
 screensaver = ['<Super>Escape']
+www = ['<Super>b']
+
+[org.gnome.shell.overrides]
+attach-modal-dialogs = false
+workspaces-only-on-primary = false
