@@ -1,0 +1,29 @@
+From 8687066158ac7a2cd3b20d0b112e66c1d1402d0e Mon Sep 17 00:00:00 2001
+From: Carl George <carl@george.computer>
+Date: Wed, 21 Oct 2020 00:44:51 -0500
+Subject: [PATCH] Remove schemas from compile target
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index e8dfc33..c4c3579 100644
+--- a/Makefile
++++ b/Makefile
+@@ -29,10 +29,10 @@ transpile: $(sources) clean
+ configure:
+ 	sh scripts/configure.sh
+ 
+-compile: convert metadata.json schemas
++compile: convert metadata.json
+ 	rm -rf _build
+ 	mkdir -p _build
+-	cp -r metadata.json icons schemas target/*.js imports/*.js *.css _build
++	cp -r metadata.json icons target/*.js imports/*.js *.css _build
+ 	for proj in $(PROJECTS); do \
+ 		mkdir -p _build/$${proj}; \
+ 		cp -r target/$${proj}/*.js _build/$${proj}; \
+-- 
+2.28.0
+

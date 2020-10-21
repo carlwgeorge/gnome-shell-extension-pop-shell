@@ -1,20 +1,22 @@
 %global extension   pop-shell
 %global uuid        %{extension}@system76.com
 %global forgeurl    https://github.com/pop-os/shell
-%global commit      ff702bcceb20e6eb70c9cc5559252f929b8cb30c
-%global date        20201001
+%global commit      a11d3c34db01987bb716b8b127b2b889130a4fc1
+%global date        20201016
 
 %forgemeta
 
 Name:           gnome-shell-extension-%{extension}
 Version:        0.1.0
-Release:        0.8%{?dist}
+Release:        0.9%{?dist}
 Summary:        GNOME Shell extension for advanced tiling window management
 # The entire source code is GPLv3 except math.js which is ASL 2.0
 License:        GPLv3 and ASL 2.0
 URL:            %{forgeurl}
 Source0:        %{forgesource}
 Source1:        50_%{extension}.gschema.override
+# downstream-only patch
+Patch0:         0001-Remove-schemas-from-compile-target.patch
 BuildArch:      noarch
 BuildRequires:  npm(typescript) >= 3.8
 Requires:       gnome-shell-extension-common
@@ -31,19 +33,11 @@ become the leading competitor to the GNOME desktop.
 
 
 %prep
-%forgesetup
+%forgeautosetup -p 1
 
 
 %build
-# The convert target compiles the typescript to javascript and does some sed
-# manipulation of the resulting files.
-%make_build convert
-
-# The compile target has a prerequisite of the schemas target, which we don't
-# want, because our schemas will be compiled by glib2's file triggers.  Perform
-# the steps we do want from that target manually.
-mkdir -p _build
-cp -r --preserve=mode,timestamps metadata.json icons target/*.js imports/*.js *.css src/gtk/*.js _build
+%make_build compile
 
 
 %install
@@ -67,6 +61,9 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 
 
 %changelog
+* Tue Oct 20 2020 Carl George <carl@george.computer> - 0.1.0-0.9.20201016gita11d3c3
+- Latest upstream commit
+
 * Fri Oct 02 2020 Carl George <carl@george.computer> - 0.1.0-0.8.20201001gitff702bc
 - Latest upstream commit
 - Include new color-dialog file
