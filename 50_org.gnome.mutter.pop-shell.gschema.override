@@ -1,0 +1,7 @@
+[org.gnome.mutter]
+attach-modal-dialogs = false
+workspaces-only-on-primary = false
+
+[org.gnome.mutter.keybindings]
+toggle-tiled-left = ['<Primary><Super>Left']
+toggle-tiled-right = ['<Primary><Super>Right']

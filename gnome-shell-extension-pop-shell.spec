@@ -8,13 +8,17 @@
 
 Name:           gnome-shell-extension-%{extension}
 Version:        0.1.0
-Release:        0.9%{?dist}
+Release:        1%{?dist}
 Summary:        GNOME Shell extension for advanced tiling window management
 # The entire source code is GPLv3 except math.js which is ASL 2.0
 License:        GPLv3 and ASL 2.0
 URL:            %{forgeurl}
 Source0:        %{forgesource}
-Source1:        50_%{extension}.gschema.override
+Source1:        50_org.gnome.desktop.wm.keybindings.%{extension}.gschema.override
+Source2:        50_org.gnome.mutter.%{extension}.gschema.override
+Source3:        50_org.gnome.mutter.wayland.%{extension}.gschema.override
+Source4:        50_org.gnome.settings-daemon.plugins.media-keys.%{extension}.gschema.override
+Source5:        50_org.gnome.shell.%{extension}.gschema.override
 # downstream-only patch
 Patch0:         0001-Remove-schemas-from-compile-target.patch
 # https://github.com/pop-os/shell/pull/649
@@ -60,8 +64,9 @@ install -D -p -m 0644 \
     schemas/org.gnome.shell.extensions.%{extension}.gschema.xml \
     %{buildroot}%{_datadir}/glib-2.0/schemas/%{uuid}.gschema.xml
 
-# install the schema override file
-install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{extension}.gschema.override
+# install the schema override files
+install -d -m 0755 %{buildroot}%{_datadir}/glib-2.0/schemas
+install -p -m 0644 %{_sourcedir}/*.%{extension}.gschema.override %{buildroot}%{_datadir}/glib-2.0/schemas/
 
 
 %files
@@ -72,10 +77,13 @@ install -D -p -m 0644 %{S:1} %{buildroot}%{_datadir}/glib-2.0/schemas/50_%{exten
 
 
 %files shortcut-overrides
-%{_datadir}/glib-2.0/schemas/50_%{extension}.gschema.override
+%{_datadir}/glib-2.0/schemas/*.%{extension}.gschema.override
 
 
 %changelog
+* Thu Oct 22 2020 Carl George <carl@george.computer> - 0.1.0-1.20201016gita11d3c3
+- Split gschema overrides to seperate files
+
 * Tue Oct 20 2020 Carl George <carl@george.computer> - 0.1.0-0.9.20201016gita11d3c3
 - Latest upstream commit
 - Sync shortcut overrides with pop-session
